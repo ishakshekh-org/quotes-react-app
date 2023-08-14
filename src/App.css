@@ -1,38 +1,218 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&family=Merienda:wght@400;700&family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    font-family: 'League Spartan', sans-serif;
+    font-family: 'Merienda', cursive;
+    font-family: 'Poppins', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root,
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100dvh;
+    box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app {
+    height: 100%;
+    background-color: #21212a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.gradient-1 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    bottom: 2rem;
+    left: 2rem;
+    background-color: #ca00ff;
+    filter: blur(260px);
+    z-index: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.gradient-2 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 2rem;
+    right: 2rem;
+    background-color: #7aebfb;
+    filter: blur(190px);
+    z-index: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.card {
+    z-index: 99;
+    width: 40em;
+    height: 20rem;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 3px 5px 0 black;
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    z-index: 10;
+    color: whitesmoke;
+    padding: 2%;
+}
+
+.heading {
+    color: whitesmoke;
+}
+
+/* blob */
+.blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(180deg,
+            rgba(47, 217, 255, 0.42) 31.77%,
+            #5cccf1 100%);
+    mix-blend-mode: color-dodge;
+    -webkit-animation: move 25s infinite alternate;
+    animation: move 25s infinite alternate;
+    transition: 1s cubic-bezier(0.07, 0.8, 0.16, 1);
+}
+
+.blob:hover {
+    width: 520px;
+    height: 520px;
+    -webkit-filter: blur(30px);
+    filter: blur(30px);
+    box-shadow:
+        inset 0 0 0 5px rgba(255, 255, 255, 0.6),
+        inset 100px 100px 0 0px #fa709a,
+        inset 200px 200px 0 0px #784ba8,
+        inset 300px 300px 0 0px #2b86c5;
+}
+
+@-webkit-keyframes move {
+    from {
+        transform: translate(-100px, -50px) rotate(-90deg);
+        border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+    }
+
+    to {
+        transform: translate(500px, 100px) rotate(-10deg);
+        border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+    }
+}
+
+@keyframes move {
+    from {
+        transform: translate(-100px, -50px) rotate(-90deg);
+        border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+    }
+
+    to {
+        transform: translate(500px, 100px) rotate(-10deg);
+        border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+    }
+}
+
+/* button */
+
+.button {
+    position: relative;
+    outline: none;
+    text-decoration: none;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    height: 4rem;
+    width: 10rem;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    border: .5px solid rgba(0, 0, 0, 3);
+}
+
+.button span {
+    color: aliceblue;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 0.7px;
+}
+
+.button:hover {
+    animation: rotate 0.7s ease-in-out both;
+}
+
+.button:hover span {
+    animation: storm 0.7s ease-in-out both;
+    animation-delay: 0.06s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+
+    25% {
+        transform: rotate(3deg) translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: rotate(-3deg) translate3d(0, 0, 0);
+    }
+
+    75% {
+        transform: rotate(1deg) translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+}
+
+@keyframes storm {
+    0% {
+        transform: translate3d(0, 0, 0) translateZ(0);
+    }
+
+    25% {
+        transform: translate3d(4px, 0, 0) translateZ(0);
+    }
+
+    50% {
+        transform: translate3d(-3px, 0, 0) translateZ(0);
+    }
+
+    75% {
+        transform: translate3d(2px, 0, 0) translateZ(0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) translateZ(0);
+    }
+}
+
+/* cardContainer */
+.cardContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
